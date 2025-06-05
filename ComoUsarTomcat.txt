@@ -1,0 +1,13 @@
+Ya vi como vamos hacer para el trabajo de Java Web entonces es lo siguiente.
+1. Descargar tomcat versión 9.x
+2. Comprobar que las version de jdk que se usa es jdk 8 o superior
+- Si se tiene otra versión de jdk menor a la 8:
+- Descargar un jdk de amazon corretto v.8 o superior (17 de preferencia) de Internet, descargar el instalador y ejecurarlo.
+- Crear una instancia de jdk en neatbeans (Tools>JavaPlatform>Add>Seguir pasos simples, el jdk se encuentra en:  program files>amazon corretto>instancia), se selecciona el directorio, si va todo bien solito reconoce el jdk.
+- Esta instancia de jdk configurar tanto para el servidor como para el arraque de maeven de java (Más adelante se explica). 
+- Soluciones un poco extremas es cambiar la variable global de jdk en la computadora o la variable de ejecución de jdk para netbeans.
+3. Crear el servidor de tomcat. En neatbeans: Tools>Servers>Add Server>Tomcat (cambiar nombre opcional)>Selección ubicación de descarga y poner credenciales, asegurarse que: Instancia de Servidor(nombre)>Platform este jdk 8 o superior)
+Para cambie el jdk de maeven se usa: Tools>Options>Selecciona el Icono de Java>Maven>Seleccionar el jdk de preferencia
+4. Creación del proyecto de Maven: Nuevo projecto>Java with Maven>Web Application (puede estar en gris no hay problema)>Configurar nombre y demás>Seleccionar servidor
+5. Cambiar la versión de .war en pom.xml: En el projecto>Project Files>pom.xml>buscar maven-war-plugin>cambiar de versión a 3.4.0, basta con que este 3.2.0 o superior.
+- Si todo fue bien hasta este punto si presiona f6, se abre el index en el navegador, que hace por debajo: prendera el servidor, se empaquetara mediante .war y se lo enviara a tomcat
